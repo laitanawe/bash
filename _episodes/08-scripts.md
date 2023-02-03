@@ -35,14 +35,14 @@ Our shell script will have two parts:
   tells our computer what program to run our script with. In this case, we are
   telling it to run our script with our command-line shell (what we've been
   doing everything in so far). If we wanted our script to be run with something
-  else, like Perl, we could add `#!/usr/bin/perl`
+  else, like Perl, we could add `#!/usr/bin/perl`. If we want our script to work on any unix platform and find the path to the bash program, then the first line should be `#!/usr/bin/env bash`
 * Now, anywhere below the first line, add `echo "Our script worked!"`. When our
   script runs, `echo` will happily print out `Our script worked!`.
 
 Our file should now look like this:
 
 ```
-#!/bin/bash
+#!/bin/env bash
 
 echo "Our script worked!"
 ```
@@ -181,7 +181,7 @@ Now lets try adding this to our script with `nano`. Edit your script to look
 something like this:
 
 ```
-#!/bin/bash
+#!/usr/bin/env bash
 
 # This is a comment... they are nice for making notes!
 echo "Our script worked!"
@@ -227,7 +227,7 @@ file we specify with `FILE`.
 Our script:
 
 ```
-#!/bin/bash
+#!/usr/bin/env bash
 
 # set our variable to the name of our GTF file
 FILE=dmel-all-r6.19.gtf
@@ -261,7 +261,7 @@ in this lesson, but it's something to be aware of).
 Our script:
 
 ```
-#!/bin/bash
+#!/usr/bin/env bash
 
 # call wc -l on our first argument
 wc -l $1
@@ -317,7 +317,7 @@ commands on every file in a directory (or other stuff of that nature).
 for-loops generally have the following syntax:
 
 ```
-#!/bin/bash
+#!/usr/bin/env bash
 
 for VAR in first second third
 do
@@ -351,7 +351,7 @@ current directory? Shell variables work perfectly in for-loops. In this
 example, we'll save the result of `ls` and loop over each file:
 
 ```
-#!/bin/bash
+#!/usr/bin/env bash
 
 FILES=$(ls)
 for VAR in $FILES
@@ -382,7 +382,7 @@ There's a shortcut to run on all files of a particular type, say all `.gz`
 files:
 
 ```
-#!/bin/bash
+#!/usr/bin/env bash
 
 for VAR in *.gz
 do
@@ -407,7 +407,7 @@ gene_association.fb.gz
 > >
 > > Create the following script in a file called `head_all.sh`
 > > ```
-> > #!/bin/bash
+> > #!/usr/bin/env bash
 > >
 > > for FILE in *.fastq
 > > do
@@ -445,7 +445,7 @@ gene_association.fb.gz
 > >
 > > Create the following script in a file called `process.sh`
 > > ```
-> > #!/bin/bash
+> > #!/usr/bin/env bash
 > >
 > > for FILE in *
 > > do
@@ -459,7 +459,7 @@ gene_association.fb.gz
 > > `find` command to give us only files in the current directory:
 > >
 > > ```
-> > #!/bin/bash
+> > #!/usr/bin/env bash
 > >
 > > for FILE in $(find . -max-depth 1 -type f)
 > > do
