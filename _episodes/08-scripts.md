@@ -42,7 +42,7 @@ Our shell script will have two parts:
 Our file should now look like this:
 
 ```
-#!/bin/env bash
+#!/usr/bin/env bash
 
 echo "Our script worked!"
 ```
