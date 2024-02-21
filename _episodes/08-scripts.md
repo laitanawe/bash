@@ -251,7 +251,7 @@ What if we wanted to do our little `wc -l` script on other files without having
 to change `$FILE` every time we want to use it? There is actually a special
 shell variable we can use in scripts that allows us to use arguments in our
 scripts (arguments are extra information that we can pass to our script, like
-the `-l` in `wc -l`).
+the `$FILE` in `wc -l $FILE`).
 
 To use the first argument to a script, use `$1` (the second argument is `$2`,
 and so on). Let's change our script to run `wc -l` on `$1` instead of `$FILE`.
